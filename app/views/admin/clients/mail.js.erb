@@ -1,0 +1,10 @@
+$('section.container').prepend("<%= escape_javascript render 'mail', details: @clientdetails %>")
+$('.progress').hide();
+
+$('#send').click(function() {
+	$(this).prev('.progress').show();
+});
+
+$('#close').click(function() {
+  $(this).closest('.row').slideUp();
+});

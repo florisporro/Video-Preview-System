@@ -1,0 +1,11 @@
+<%= content_tag_for(:tr, video) do %>
+	<td><%= video.title %></td>
+	<td><%= video.description %></td>
+	<td><%= video.videolink %></td>
+	<td><%= time_ago_in_words video.updated_at %> ago</td>
+	<td>
+		<%= link_to '', admin_client_video_path(video.user_id, video.id), method: :patch, remote: true, class: "fui-new text-primary" %>
+
+		<%= link_to '', admin_client_video_path(video.user_id, video.id), method: :delete, :confirm => 'Are you sure?', remote: true, class: "fui-cross-inverted text-primary delete_video" %>
+	</td>
+<% end %>

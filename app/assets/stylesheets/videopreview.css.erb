@@ -1,0 +1,23 @@
+
+.VideoPreviewApp > header > .dialog.dialog-inverse {
+	background-image: url(<%= asset_path 'mountain.jpg' %>);
+	background-color: rgba(255,255,255,0);
+	background-size: 100% auto;
+}
+
+body.modal-open, 
+.modal-open .navbar-fixed-top, 
+.modal-open .navbar-fixed-bottom 
+{
+    margin-right: 0px;
+}
+
+body .modal-dialog {
+	left: inherit;
+	width: 360px;
+}
+
+body .modal-content {
+	width: 360px;
+	margin-right: -180px;
+}

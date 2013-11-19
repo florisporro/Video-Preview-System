@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VideoPreviewSystem</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<!--[if lt IE 8]>
+	<%= javascript_include_tag "icon-font-ie7" %>
+	<![endif]-->
+	<%= csrf_meta_tags %>
+
+
+</head>
+<body class="VideoPreviewApp">
+
+<%= yield %>
+
+<div class="spacer"></div>
+
+<footer>
+
+	<div class="bottom-menu bottom-menu-inverse">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 navbar-brand">
+					<a href="http://www.aviofilm.com/">Aviofilm</a>
+				</div>
+
+				<div class="col-md-8">
+					<ul class="bottom-links">
+						<li><a href="http://aviofilm.com/">Our Portfolio</a></li>
+						<li><a href="skype:florisporro?call">Call <i>now</i> on Skype</a></li>
+						<li><a href="callto:+31636184369">Call <i>now</i> (using a mobile phone)</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2">
+					<ul class="bottom-icons">
+						<li><a href="https://www.facebook.com/Aviofilm" class="fui-facebook"></a></li>
+						<li><a href="https://www.twitter.com/Aviofilm" class="fui-twitter"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+</body>
+</html>

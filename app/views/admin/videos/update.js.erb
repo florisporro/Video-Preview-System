@@ -1,0 +1,3 @@
+$('header').after("<%= raw(escape_javascript(render 'video_edit_modal', video: @video)) %>");
+
+$('#myModal').modal('show');

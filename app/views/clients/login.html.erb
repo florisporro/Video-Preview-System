@@ -1,0 +1,54 @@
+<header>
+<div class="dialog dialog-inverse">
+	<div class="container">
+		<img src="/images/icons/lock.svg">
+		<h4>Aviofilm</h4>
+		<h5>Video Preview System</h5>
+		<p class="lead">Please log-in</p>
+	</div>
+</div>
+</header>
+
+<% if !flash[:notice].nil? %>
+<div class="dialog dialog-success">
+	<div class="container"><%= flash[:notice] %></div>
+</div>
+<% end %>
+
+<% if !flash[:alert].nil? %>
+<div class="dialog dialog-danger">
+	<div class="container"><p><%= flash[:alert] %></p></div>
+</div>
+<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<%= form_tag('/clients/login', method: :post) do %>
+			<label for="password">
+				Password
+				<%= password_field_tag 'password', '', class: "form-control input-s" %>
+			</label>
+			<%= submit_tag 'Login', class: "btn btn-primary btn-embossed" %>
+			<% end %>
+		</div>
+	</div>
+
+	<p class="lead">This page allows us to securely show in-progress works to clients. You will have received an e-mail from us. Please login with the supplied details.</p>
+
+	<h4>Oh, three more things:</h4>
+	<div class="row">
+		<div class="col-md-4">
+			<img class="center-block" src="/images/icons/responsive.svg">
+			<p class="small">You can use this page on mobile devices as well.</p>
+		</div>
+		<div class="col-md-4">
+			<img class="center-block" src="/images/icons/pencils.svg">
+			<p class="small">We will send you an e-mail or call you every time we add or update a video here.</p>
+		</div>
+		<div class="col-md-4">
+			<img class="center-block" src="/images/icons/rocket.svg">
+			<p class="small">Please do not use this page for final delivery to your customers. This page is for previewing only, you will receive deliverables separately.</p>
+		</div>
+	</div>
+</div>

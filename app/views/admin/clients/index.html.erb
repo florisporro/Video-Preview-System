@@ -1,0 +1,68 @@
+
+<header>
+<div class="dialog dialog-inverse">
+	<div class="container">
+		<img src="/images/icons/settings.svg">
+		<h4>Aviofilm</h4>
+		<h5>Client & Video Manager</h5>
+		<p class="lead">Welcome, <%= @_current_user.name %></p> <%= link_to  "Log out", logout_url, class: "btn btn-carrot btn-primary" %>
+	</div>
+</div>
+</header>
+
+<% if !flash[:notice].nil? %>
+<div class="dialog dialog-success">
+	<div class="container"><%= flash[:notice] %></div>
+</div>
+<% end %>
+
+<% if !flash[:alert].nil? %>
+<div class="dialog dialog-danger">
+	<div class="container"><p><%= flash[:alert] %></p></div>
+</div>
+<% end %>
+
+<section class="container">
+
+	
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+
+		<thead>
+				<th>Name</th>
+				<th>Password</th>
+				<th>E-Mail</th>
+				<th>Videos</th>
+				<th>Last login</th>
+				<th>Unseen</th>
+				<th>Admin</th>
+				<th>Action</th>
+		</thead>
+	
+		<tbody>
+		<%= render partial: "client", collection: @clients %>
+		<%= form_for User.new, url: admin_clients_path(@client), as: :client do |f| %>
+			<tr class="tablefooter">
+				<td><%= f.text_field :name, class: "form-control input-sm", placeholder: "Name" %></td>
+				<td><%= f.text_field :password, class: "form-control input-sm", placeholder: "Password" %></td>
+				<td><%= f.email_field :email, class: "form-control input-sm", placeholder: "E-Mail" %></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<label class="checkbox" for="admin">
+					<%= f.check_box :admin, id: "admin", data: { toggle: "checkbox" } %>
+					Admin
+					</label>
+				</td>
+				<td>
+					<%= f.submit 'New Client', class: "btn btn-primary btn-s btn-embossed" %>
+				</td>
+			</tr>
+		<% end %>
+		</tbody>
+		</table>
+	</div>
+
+</section>

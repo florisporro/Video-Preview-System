@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Editing: <%= @user.name %></h4>
+      </div>
+      <div class="modal-body">
+		<%= form_for user, url: admin_client_path(@user), method: :patch, as: :client do |f| %>
+			<label for="name">Name</label>
+			<%= f.text_field :name, class: "form-control input-sm" %>
+			<label for="password">Password</label>
+			<%= f.text_field :password, class: "form-control input-sm" %>
+			<label for="E-Mail">E-Mail</label>
+			<%= f.text_field :email, class: "form-control input-sm" %>
+
+			<label class="checkbox" for="admin">
+			<%= f.check_box :admin, id: "admin", data: { toggle: "checkbox" } %>
+			Admin
+			</label>
+			
+		
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit 'Save Changes', class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

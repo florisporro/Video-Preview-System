@@ -1,0 +1,7 @@
+$('header').after("<%= raw(escape_javascript(render 'client_edit_modal', user: @user)) %>");
+
+$('#myModal').modal('show');
+
+$('[data-toggle="checkbox"]').each(function () {
+  $(this).checkbox();
+});

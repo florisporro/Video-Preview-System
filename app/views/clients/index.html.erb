@@ -1,0 +1,37 @@
+<header>
+<div class="dialog dialog-inverse">
+	<div class="container">
+		<img src="/images/icons/video.svg">
+		<h5>Video Preview System</h5>
+		<p class="lead">Welcome, <%= @_current_user.name %></p>
+
+		<%= link_to logout_url, class: "btn btn-carrot btn-primary" do %>
+		  <i class="fui-power"></i> Log out
+		<% end %>
+	</div>
+</div>
+</header>
+<section class="page">
+
+<div class="container">
+	<% if @videos.count == 0 %>
+		<p class="lead text-center">There are no videos to preview at this time.</p>
+	<% else %>
+		<% @videos.each do |v| %>
+		<div class="row" style="margin-bottom: 20px">
+			<div class="col-md-3 dialog-inverse">
+				<h5><%= v.title %></h5>
+				<p>Added <%= time_ago_in_words v.created_at %> ago</p>
+				<p class="small"><img src="/images/icons/clipboard.svg" width=40 class="pull-right"><%= raw v.description %></p>
+				
+			</div>
+			<div class="col-md-9 videoinside">
+				<iframe src="//player.vimeo.com/video/<%= v.videolink %>?title=0&amp;byline=0&amp;portrait=0&amp;color=599CB7" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+	<div class="clearfix"></div>
+</div>
+
+</section>

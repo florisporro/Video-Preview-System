@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Dear <%= @user.name %>,
+    </p>
+    <p>Since your last login, <%= @unseen %> new videos have been uploaded for review.</p>
+    <p>You can review them <a href="http://preview.aviofilm.com/">here</a> using your password: '<%= @user.password %>'.</p>
+    <p>Kind regards,<br />
+    Aviofilm</p>
+  </body>
+</html>

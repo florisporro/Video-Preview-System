@@ -1,0 +1,62 @@
+
+<header>
+<div class="dialog dialog-inverse">
+	<div class="container">
+		<img src="/images/icons/settings.svg">
+		<h4>Aviofilm</h4>
+		<h5>Client & Video Manager</h5>
+		<p class="lead">Welcome, <%= @_current_user.name %></p> <%= link_to  "Log out", logout_url, class: "btn btn-carrot btn-primary" %>
+	</div>
+</div>
+</header>
+
+<% if !flash[:notice].nil? %>
+<div class="dialog dialog-success">
+	<div class="container"><%= flash[:notice] %></div>
+</div>
+<% end %>
+
+<% if !flash[:alert].nil? %>
+<div class="dialog dialog-danger">
+	<div class="container"><p><%= flash[:alert] %></p></div>
+</div>
+<% end %>
+
+<section class="container">
+
+	<h5>Showing videos for user: <%= @user.name %></h5>
+	<p><%= link_to 'Back to client overview', admin_clients_path, class: "btn btn-primary" %></a></p>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+
+		<thead>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Videolink</th>
+				<th>Created</th>
+				<th>Actions</th>
+		</thead>
+
+		<tbody>
+			<%= render partial: "video", collection: @user.videos %>
+		</tbody>
+	
+		<%= form_for @user.videos.new, url: admin_client_videos_path(@user), as: :video do |f| %>
+			<tr class="tablefooter">
+				<td><%= f.text_field :title, class: "form-control input-sm", placeholder: "Title" %></td>
+				<td><%= f.text_field :description, class: "form-control input-sm", placeholder: "Description" %></td>
+				<td><%= f.text_field :videolink, class: "form-control input-sm", placeholder: "Video Link" %></td>
+				<td></td>
+				<td>
+					<%= f.submit 'New Video', class: "btn btn-primary btn-s btn-embossed" %>
+				</td>
+			</tr>
+		<% end %>
+
+
+		</table>
+	</div>
+
+
+</section>

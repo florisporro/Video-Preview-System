@@ -1,0 +1,17 @@
+<%= form_for user, url: admin_client_path(@user), method: :patch, as: :client do |f| %>
+	<tr>
+		<td><%= f.text_field :name, class: "form-control input-sm" %></td>
+		<td><%= f.text_field :password, class: "form-control input-sm" %></td>
+		<td><%= f.text_field :email, class: "form-control input-sm" %></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>
+			<label class="checkbox" for="admin">
+			<%= f.check_box :admin, id: "admin", data: { toggle: "checkbox" } %>
+			Admin
+			</label>
+		</td>
+		<td><%= f.submit 'Save', class: "btn btn-primary btn-s btn-embossed" %></td>
+	</tr>
+<% end %>

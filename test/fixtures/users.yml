@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  password: MyString
+  admin: false
+  time: 2013-11-05 14:45:01
+  session: MyString
+
+two:
+  name: MyString
+  password: MyString
+  admin: false
+  time: 2013-11-05 14:45:01
+  session: MyString

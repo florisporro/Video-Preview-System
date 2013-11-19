@@ -1,0 +1,19 @@
+<%= content_tag_for(:tr, client) do %>
+	<td><%= client.name %></td>
+	<td><%= client.password %></td>
+	<td><%= client.email %></td>
+	<td><%= link_to admin_client_videos_path(client.id) do %>
+		<span class="badge"><%= client.videos.count %></span>
+		<% end %>
+	</td>
+	<td><%= time_ago_in_words client.updated_at %> ago</td>
+	<td><%= client.videos.where(created_at: (client.updated_at)..Time.now).count %></td>
+	<td><i class="fui-<%= client.admin ? "check" : "cross" %>-inverted text-primary"></i></td>
+	<td>
+		<%= link_to '', admin_client_path(client.id), method: :patch, remote: true, class: "fui-new text-primary" %>
+
+		<%= link_to '', admin_client_path(client.id), method: :delete, :confirm => 'Are you sure?', remote: true, class: "fui-cross-inverted text-primary delete_user" %>
+
+		<%= link_to '', mail_admin_client_path(client.id), method: :get, remote: true, class: "fui-mail text-primary" %>
+	</td>
+<% end %>
